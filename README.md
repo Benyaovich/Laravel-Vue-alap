@@ -8,7 +8,7 @@
 
 ```bash
 
-git clone https://github.com/Benyaovich/PandaFrontendBackend.git
+git clone https://github.com/Benyaovich/Laravel-Vue-alap.git
 
 ```
 ```bash
