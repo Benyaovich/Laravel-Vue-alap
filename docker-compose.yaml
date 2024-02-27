@@ -7,8 +7,6 @@ services:
   web:
     container_name: laravel-web
     image: nginx:1.25-alpine3.17
-    ports:
-      - "${WEB_PORT}:${WEB_PORT}"
     volumes:
       - ./backend:/www:rw
       - ./backend/docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
@@ -58,9 +56,6 @@ services:
     depends_on:
       - db
     environment:
-      # - PMA_ARBITRARY=${PMA_ARBITRARY}
-      - PMA_HOST=${DB_HOST}
-      - PMA_PORT=${DB_PORT}
       - PMA_USER=${DB_USERNAME}
       - PMA_PASSWORD=${DB_PASSWORD}
     ports:
