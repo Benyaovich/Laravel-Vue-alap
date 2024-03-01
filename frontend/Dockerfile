@@ -10,9 +10,5 @@ COPY ./vite.config.js vite.config.js
 
 RUN npm install
 
-
-# expose the port the app will run on
-EXPOSE 8521
-
 # start app
 CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]

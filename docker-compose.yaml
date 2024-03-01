@@ -56,8 +56,7 @@ services:
     depends_on:
       - db
     environment:
-      - PMA_USER=${DB_USERNAME}
-      - PMA_PASSWORD=${DB_PASSWORD}
+        - PMA_ABSOLUTE_URI=http://localhost/phpmyadmin
     networks:
       - webapp
 
