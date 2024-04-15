@@ -1,19 +1,20 @@
 # Laravel-vue-alap
 
-
-
-## Lépések
-
-
+## Build
 
 ```bash
-
-cp ./backend/.env.example ./backend/.env
-
+docker compose build
 ```
+
+## Run
+
 ```bash
+docker compose  up -d
+```
 
-docker compose --env-file=./backend/.env up -d --build
+## Run tests
 
+```bash
+docker compose exec app php artisan test
 ```
 

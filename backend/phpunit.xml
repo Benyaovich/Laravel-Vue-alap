@@ -5,13 +5,16 @@
          colors="true"
 >
     <testsuites>
-        <testsuite name="Unit">
-            <directory>tests/Unit</directory>
-        </testsuite>
         <testsuite name="Feature">
             <directory>tests/Feature</directory>
         </testsuite>
     </testsuites>
+    <!-- <logging>
+        <junit outputFile="junit.xml"/>
+        <teamcity outputFile="teamcity.txt"/>
+        <testdoxHtml outputFile="testdox.html"/>
+        <testdoxText outputFile="testdox.txt"/>
+    </logging> -->
     <source>
         <include>
             <directory>app</directory>

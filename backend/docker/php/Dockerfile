@@ -18,7 +18,8 @@ RUN apk update && apk add --no-cache \
     oniguruma-dev \
     libxml2-dev \
     vim \
-    fish
+    fish \
+    fcgi
     
 
 RUN docker-php-ext-configure pdo && \
@@ -35,8 +36,12 @@ RUN docker-php-ext-install  pdo \
                             pcntl \
                             gd
 RUN chmod +x /scripts/entrypoint.sh
-
+RUN wget -O /usr/local/bin/php-fpm-healthcheck \
+https://raw.githubusercontent.com/renatomefi/php-fpm-healthcheck/master/php-fpm-healthcheck \
+&& chmod +x /usr/local/bin/php-fpm-healthcheck
+RUN set -xe && echo "pm.status_path = /status" >> /usr/local/etc/php-fpm.d/zz-docker.conf
 USER phpdocker
 
+HEALTHCHECK CMD php-fpm-healthcheck || exit 1
 ENTRYPOINT [ "/scripts/entrypoint.sh" ]
-CMD ["php-fpm"]
+

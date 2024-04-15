@@ -1,5 +1,6 @@
 #!/bin/sh
 composer install
-php artisan key:generate
+php artisan down
 php artisan migrate:fresh --seed
+php artisan up
 php-fpm
